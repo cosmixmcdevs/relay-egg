@@ -1,0 +1,2 @@
+# relay-egg
+for pterodactyl
