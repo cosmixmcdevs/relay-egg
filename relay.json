@@ -1,0 +1,42 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v2",
+        "update_url": null
+    },
+    "exported_at": "2026-01-01T00:00:00+00:00",
+    "name": "Custom Multiplayer Relay",
+    "author": "xbkxminit2winit@gmail.com",
+    "description": "A lightweight Debian container for running a compiled UDP relay binary or custom startup script.",
+    "features": null,
+    "docker_images": {
+        "Debian": "ghcr.io/pterodactyl/yolks:debian"
+    },
+    "file_denylist": [],
+    "startup": "./{{EXECUTABLE_NAME}}",
+    "config": {
+        "files": "{}",
+        "startup": "{\r\n    \"done\": \"Listening\"\r\n}",
+        "logs": "{}",
+        "stop": "^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!/bin/bash\nmkdir -p /mnt/server\ncd /mnt/server\necho \"Container ready. Upload your compiled relay binary via SFTP.\"",
+            "container": "ghcr.io/pterodactyl/installers:alpine",
+            "entrypoint": "bash"
+        }
+    },
+    "variables": [
+        {
+            "name": "Executable File Name",
+            "description": "The name of your compiled relay binary in the root directory.",
+            "env_variable": "EXECUTABLE_NAME",
+            "default_value": "relay-server",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:64",
+            "field_type": "text"
+        }
+    ]
+}
