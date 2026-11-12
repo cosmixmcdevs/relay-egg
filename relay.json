@@ -5,7 +5,7 @@
         "update_url": null
     },
     "exported_at": "2026-01-01T00:00:00+00:00",
-    "name": "Custom Multiplayer Relay",
+    "name": "Eaglercraft Relay",
     "author": "xbkxminit2winit@gmail.com",
     "description": "A lightweight Debian container for running a compiled UDP relay binary or custom startup script.",
     "features": null,
@@ -22,9 +22,9 @@
     },
     "scripts": {
         "installation": {
-            "script": "#!/bin/bash\nmkdir -p /mnt/server\ncd /mnt/server\necho \"Container ready. Upload your compiled relay binary via SFTP.\"",
+            "script": "#!/bin/ash\nmkdir -p /mnt/server\ncd /mnt/server\necho \"Container ready. Upload your compiled relay binary via SFTP.\"",
             "container": "ghcr.io/pterodactyl/installers:alpine",
-            "entrypoint": "bash"
+            "entrypoint": "ash"
         }
     },
     "variables": [
